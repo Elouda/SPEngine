@@ -1,0 +1,148 @@
+// Engine Config changes
+@PART[*]:HAS[#engineType[NK33]]:AFTER[RealismOverhaulEngines]
+{
+	@MODULE[ModuleEngineConfigs]
+	{
+		%literalZeroIgnitions = True
+		@CONFIG[NK-15]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[NK-15-Original-NoGimbal]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[NK-33]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[NK-33-Original-NoGimbal]
+		{
+			@ignitions = 0
+		}
+	}
+}
+@PART[*]:HAS[#engineType[NK9]]:AFTER[RealismOverhaulEngines]
+{
+	@MODULE[ModuleEngineConfigs]
+	{
+		%literalZeroIgnitions = True
+		@CONFIG[NK-9]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[NK-9-1969]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[NK-9-1972]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[NK-9-2009]
+		{
+			@ignitions = 0
+		}
+	}
+}
+@PART[*]:HAS[#engineType[LR87]]:AFTER[RealismOverhaulEngines]
+{
+	@MODULE[ModuleEngineConfigs]
+	{
+		@CONFIG[LR87-AJ-5]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[LR87-AJ-7]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[LR87-AJ-9]
+		{
+			@ignitions = 0
+		}
+	}
+}
+@PART[*]:HAS[#engineType[HG3]]:AFTER[RealismOverhaulEngines]
+{
+	@MODULE[ModuleEngineConfigs]
+	{
+		%literalZeroIgnitions = True
+		@CONFIG[HG-3-SL]
+		{
+			@ignitions = 0
+		}
+	}
+}
+@PART[*]:HAS[#engineType[H1]]:AFTER[RealismOverhaulEngines]
+{
+	@MODULE[ModuleEngineConfigs]
+	{
+		%literalZeroIgnitions = True
+		@CONFIG[H-1-165K]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[H-1-188K]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[H-1-200K]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[H-1-205K]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[RS-27]
+		{
+			@ignitions = 0
+		}
+	}
+}
+@PART[*]:HAS[#engineType[Gamma301]]:AFTER[RealismOverhaulEngines]
+{
+	@MODULE[ModuleEngineConfigs]
+	{
+		%literalZeroIgnitions = True
+		@CONFIG[Gamma-201]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[Gamma-301]
+		{
+			@ignitions = 0
+		}
+	}
+}
+@PART[*]:HAS[#engineType[Gamma8]]:AFTER[RealismOverhaulEngines]
+{
+	@MODULE[ModuleEngineConfigs]
+	{
+		%literalZeroIgnitions = True
+		@CONFIG[Gamma-8]
+		{
+			@ignitions = 0
+		}
+	}
+}
+@PART[*]:HAS[#engineType[F1]]:AFTER[RealismOverhaulEngines]
+{
+	@MODULE[ModuleEngineConfigs]
+	{
+		%literalZeroIgnitions = True
+		@CONFIG[F-1-1.5M]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[F-1-1.52M]
+		{
+			@ignitions = 0
+		}
+		@CONFIG[F-1A]
+		{
+			@ignitions = 0
+		}
+	}
+}

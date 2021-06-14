@@ -1,0 +1,267 @@
+// ECM changes
+@ENTRYCOSTMODS:AFTER[RP-0]
+{
+	%M1-TP = 150000
+	%M1U-TP = 25000
+	
+	%RL10-TP = 20000
+	%HG3-TP = 7000
+	%HG3A-TP = 20000
+	%HG3B-TP = 20000
+	%HG3B2-TP = 20000
+	
+	%NK-Family = 60000, StagedKerolox
+	%NK9-SubFam = 30000, NK-Family
+	
+	%AJ26-62 = 10000, NK-33, NK-Reign
+	%F-1-1.52M = 40000
+	
+	%HG-3-SL = 50000,HG3
+    %HG-3A = 20000,HG3A-TP,HG3
+    %HG-3A-SL = 20000,HG3A-TP,HG-3A,HG-3-SL
+    %HG-3B = 20000,HG3B-TP,HG-3A
+    %HG-3B-2 = 20000,HG3B2-TP,HG-3B
+    %HG-3B-SL = 20000,HG3B-TP,HG-3B,HG-3-SL
+    %HG-3B-SL-2 = 20000,HG3B2-TP,HG-3B-2,HG-3-SL
+    %HG3 = 120000,HG3-TP,StagedHydrolox,J-2S
+	
+	%J-2X = 158860,HydroloxPumps
+	
+	%LMDE-H = 18000, HydrazineFuel,throttlingPF
+	
+	%M-1-Spec = 150000, M1-TP, HydroloxPumps, AJTitan
+    %M-1U = 25000, M1U-TP, M-1
+    %M-1U-SL = 25000, M1U-TP, M-1SL
+	
+	%NK-31 = NK-19, NK-Reign, 5000
+	%NK-43 = NK-33Upgrade, NK-Vacuum, NK-Reign
+	
+	%RD-0208 = 20000, Proton-Family
+    %RD-0210 = 10000, RD-0208
+    %RD-0212 = 10000, Proton-Family
+	
+	%RL10A-1 = 40000, RL10-TP, HydroloxPumps // guessed, plus sourced to cw
+	
+	%RS-25A = 20000,RS-25
+    %RS-25C = 20000,RS-25A
+    %RS-25D-E = 20000,RS-25C
+	
+	%S1-5400 = 15000, RD58-Family
+}
+
+// RFTechLevels changes
+@RFSETTINGS:AFTER[RP-0]
+{
+	@RF_TECHLEVELS
+	{
+		@ENGINETYPE,*:HAS[#name[S*]]  // Solids
+		{
+			%TLTECH0 = solids1956
+			%TLTECH1 = solids1958
+			%TLTECH2 = solids1962
+			%TLTECH3 = solids1964
+			%TLTECH4 = solids1967
+			%TLTECH5 = solids1976
+			%TLTECH6 = solids1986
+			%TLTECH7 = solids2009
+		}
+	}
+}
+
+@PARTUPGRADE[RFTech-solids-tltech1]:AFTER[RP-0]
+{
+	@techRequired = solids1958
+}
+@PARTUPGRADE[RFTech-solids-tltech2]:AFTER[RP-0]
+{
+	@techRequired = solids1962
+}
+@PARTUPGRADE[RFTech-solids-tltech3]:AFTER[RP-0]
+{
+	@techRequired = solids1964
+}
+@PARTUPGRADE[RFTech-solids-tltech4]:AFTER[RP-0]
+{
+	@techRequired = solids1967
+}
+@PARTUPGRADE[RFTech-solids-tltech5]:AFTER[RP-0]
+{
+	@techRequired = solids1976
+}
+@PARTUPGRADE[RFTech-solids-tltech6]:AFTER[RP-0]
+{
+	@techRequired = solids1986
+}
+@PARTUPGRADE[RFTech-solids-tltech7]:AFTER[RP-0]
+{
+	@techRequired = solids2009
+}
+
+// TREE-Engines changes
+@PART[*]:HAS[@MODULE[ModuleEngineConfigs]]:BEFORE[RealismOverhaulEnginesPost]:AFTER[RP-0]
+{
+		@MODULE[ModuleEngineConfigs],*
+		{
+			@CONFIG[CECE-Base]
+            {
+                %techRequired = hydroloxNF
+            }
+
+            @CONFIG[CECE-High]
+            {
+                %techRequired = hydroloxNF
+            }
+
+            @CONFIG[CECE-Methane]
+            {
+                %techRequired = hydroloxNF
+            }
+			@CONFIG[F-1-1.52M]
+            {
+                %techRequired = orbitalRocketry1970
+            }
+			@CONFIG[H-1-205K]
+            {
+                %techRequired = orbitalRocketry1970
+            }
+			@CONFIG[HG-3B-2]
+            {
+                %techRequired = hydrolox1992
+            }
+            @CONFIG[HG-3B-SL-2]
+            {
+                %techRequired = hydrolox1992
+            }
+			@CONFIG[RD-253]
+            {
+                %techRequired = stagedCombustion1964
+			}
+		}
+}
+
+@PARTUPGRADE[RFUpgrade_CECE-Base]:AFTER[RP-0]
+{
+	@techRequired = hydroloxNF
+}
+@PARTUPGRADE[RFUpgrade_CECE-High]:AFTER[RP-0]
+{
+	@techRequired = hydroloxNF
+}
+@PARTUPGRADE[RFUpgrade_CECE-Methane]:AFTER[RP-0]
+{
+	@techRequired = hydroloxNF
+}
+%PARTUPGRADE[RFUpgrade_F-1-1.52M]:AFTER[RP-0]
+{
+        %name = RFUpgrade_F-1-1.52M
+        %partIcon = RO-H1-RS27 // FIXME Once we get dedicated model
+        %techRequired = orbitalRocketry1970
+        %entryCost = 0
+        %cost = 0      
+        %title = F1 Engine Upgrade: F-1-1.52M Config
+        %basicInfo = Engine Performance Upgrade
+        %manufacturer = Engine Upgrade
+        %deleteme = 1
+        %description = The F1 Engine now supports the F-1-1.52M configuration for increased performance. Unlock it in the VAB/SPH through the engine configs interface.\n\n
+}
+@PARTUPGRADE[RFUpgrade_H-1-205K]:AFTER[RP-0]
+{
+	@techRequired = orbitalRocketry1970
+}
+@PARTUPGRADE[RFUpgrade_HG-3B-2]:AFTER[RP-0]
+{
+	@techRequired = hydrolox1992
+}
+@PARTUPGRADE[RFUpgrade_HG-3B-SL-2]:AFTER[RP-0]
+{
+	@techRequired = hydrolox1992
+}
+
+// TREE-Parts changes
+// Proc SRB to '56
+@PART[proceduralSRBRealFuels]:AFTER[RP-0]
+{
+	@TechRequired = solids1956
+	@entryCost = 25000
+}
+
+// M1 cost reduction
+@PART[FASAApolloLFEM1]:AFTER[RP-0]
+{
+	@cost = 7000
+}
+@PART[RO-SSTU-M1-SL]:AFTER[RP-0]
+{
+	@cost = 7000
+}
+@PART[ROE-M1]:AFTER[RP-0]
+{
+	@cost = 7000
+}
+@PART[ROE-M1SL]:AFTER[RP-0]
+{
+	@cost = 7000
+}
+@PART[RO_bluedog_M1]:AFTER[RP-0]
+{
+	@cost = 7000
+}
+@PART[SSTU-SC-ENG-M1-RO]:AFTER[RP-0]
+{
+	@cost = 7000
+}
+
+// RD253 and 0210 to '64 (Flew 65)
+@PART[RO-RD-253]:AFTER[RP-0]
+{
+    @TechRequired = stagedCombustion1964
+}
+@PART[RO-RealEngines-RD-253]:AFTER[RP-0]
+{
+    @TechRequired = stagedCombustion1964
+}
+@PART[rn_proton_rd253]:AFTER[RP-0]
+{
+    @TechRequired = stagedCombustion1964
+}
+@PART[RLA_small_highthrust]:AFTER[RP-0]
+{
+    @TechRequired = stagedCombustion1964
+}
+@PART[ROE-RD275]:AFTER[RP-0]
+{
+    @TechRequired = stagedCombustion1964
+}
+@PART[XKosmos_Angara_RD-275KX]:AFTER[RP-0]
+{
+    @TechRequired = stagedCombustion1964
+}
+
+
+@PART[RO-RD-0210]:AFTER[RP-0]
+{
+    @TechRequired = stagedCombustion1964
+}
+@PART[RO-RealEngines-RD-0210]:AFTER[RP-0]
+{
+    @TechRequired = stagedCombustion1964
+}
+@PART[ROE-RD0210]:AFTER[RP-0]
+{
+    @TechRequired = stagedCombustion1964
+}
+@PART[rn_proton_rd0210]:AFTER[RP-0]
+{
+    @TechRequired = stagedCombustion1964
+}
+
+// J-2X entry moved to ECM
+@PART[ROE-J2X]:AFTER[RP-0]
+{
+	@entryCost = 0
+}
+@PART[ROE-J2X-SSTU]:AFTER[RP-0]
+{
+	@entryCost = 0
+}
+
